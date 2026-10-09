@@ -1,0 +1,11 @@
+{
+  "name": "Dead Signal",
+  "short_name": "Dead Signal",
+  "description": "A murder mystery you solve through the crime scene and the victim's phone.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0d0d10",
+  "theme_color": "#0d0d10",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

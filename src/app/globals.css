@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0d0d10;
+  --panel: #17171c;
+  --panel-2: #202027;
+  --line: #2c2c35;
+  --text: #ecebf0;
+  --muted: #9a98a6;
+  --accent: #e5484d;
+  --accent-soft: #e5484d22;
+  --good: #46a758;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-good: var(--good);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+.typewriter {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 #ffffff55; }
+  70% { box-shadow: 0 0 0 10px #ffffff00; }
+  100% { box-shadow: 0 0 0 0 #ffffff00; }
+}
+.hotspot {
+  animation: pulse-ring 2.4s infinite;
+}
