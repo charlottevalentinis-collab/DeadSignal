@@ -7,7 +7,7 @@ create table public.playthroughs (
   created_at timestamptz not null default now(),
   case_id text not null check (char_length(case_id) <= 64),
   outcome text not null check (outcome in ('solved', 'escaped')),
-  duration_s integer not null check (duration_s between 0 and 86400),
+  duration_s integer not null check (duration_s between 0 and 2592000),
   wrong_accusations smallint not null check (wrong_accusations between 0 and 10),
   released_count smallint not null check (released_count between 0 and 50),
   key_clues_pct smallint not null check (key_clues_pct between 0 and 100),
