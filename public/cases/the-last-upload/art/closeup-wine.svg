@@ -32,7 +32,6 @@
 <path d="M216 56 q-8 50 8 86" stroke="#fff" stroke-opacity=".75" stroke-width="5" fill="none" stroke-linecap="round"/>
 <path d="M306 60 q6 30 -2 60" stroke="#fff" stroke-opacity=".35" stroke-width="3" fill="none" stroke-linecap="round"/>
 <path d="M232 160 q30 22 60 0" stroke="#fff" stroke-opacity=".25" stroke-width="3" fill="none"/>
-<text x="262" y="284" font-size="13" font-family="Georgia" font-style="italic" fill="#efe6d6" text-anchor="middle">wiped clean — no prints at all</text>
 
 <rect width="400" height="300" fill="url(#vig)"/>
 </svg>

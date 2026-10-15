@@ -21,7 +21,6 @@
 <ellipse cx="270" cy="160" rx="44" ry="44" fill="#c4b79c"/>
 <ellipse cx="270" cy="168" rx="26" ry="22" fill="#efe9da"/>
 <g fill="#fff" opacity=".9"><circle cx="262" cy="166" r="3"/><circle cx="276" cy="172" r="2.5"/><circle cx="268" cy="176" r="2"/><circle cx="282" cy="162" r="2"/></g>
-<text x="270" y="252" font-size="12" font-family="Georgia" font-weight="normal" fill="#e9e6df" text-anchor="middle" font-style="italic">chalky residue</text>
 
 <rect width="400" height="300" fill="url(#spot)"/>
 </svg>

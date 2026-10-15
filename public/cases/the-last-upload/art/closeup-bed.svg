@@ -30,7 +30,6 @@
 <rect x="28" y="226" width="344" height="32" rx="12" fill="url(#fabric)"/>
 <rect x="28" y="226" width="344" height="32" rx="12" fill="#000" filter="url(#fuzz)"/>
 <rect x="58" y="256" width="12" height="8" fill="#111"/><rect x="330" y="256" width="12" height="8" fill="#111"/>
-<text x="200" y="290" font-size="13" font-family="Georgia" font-style="italic" fill="#efe6d6" text-anchor="middle">covers untouched — nobody slept here</text>
 
 <rect width="400" height="300" fill="url(#vig)"/>
 </svg>

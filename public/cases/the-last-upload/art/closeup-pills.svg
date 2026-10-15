@@ -15,7 +15,6 @@
 <text x="200" y="190" font-size="11" font-family="Helvetica" font-weight="normal" fill="#222" text-anchor="middle" >Qty: 30</text>
 <text x="200" y="208" font-size="8" font-family="Helvetica" font-weight="normal" fill="#555" text-anchor="middle" >Refilled 8 days ago</text>
 <g fill="#fff"><ellipse cx="300" cy="230" rx="12" ry="7"/><ellipse cx="320" cy="250" rx="12" ry="7"/><ellipse cx="290" cy="258" rx="12" ry="7"/><ellipse cx="330" cy="225" rx="12" ry="7"/></g>
-<text x="310" y="285" font-size="13" font-family="Georgia" font-weight="normal" fill="#efe6d6" text-anchor="middle" font-style="italic">4 left</text>
 
 <rect width="400" height="300" fill="url(#spot)"/>
 </svg>

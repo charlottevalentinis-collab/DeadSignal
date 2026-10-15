@@ -11,7 +11,6 @@
 <rect x="142" y="72" width="116" height="186" rx="16" fill="#1d1b24" transform="rotate(12 200 165)"/>
 <circle cx="200" cy="85" r="4" fill="#333" transform="rotate(12 200 165)"/>
 <rect x="190" y="240" width="40" height="4" rx="2" fill="#333" transform="rotate(12 200 165)"/>
-<text x="330" y="270" font-size="14" font-family="Helvetica" font-weight="bold" fill="#e5484d" text-anchor="middle" >12%</text>
 
 <rect width="400" height="300" fill="url(#spot)"/>
 </svg>

@@ -1,6 +1,6 @@
 // Offline support: keep a copy of every page and file the game has loaded,
 // so a case keeps working without a connection once it has been opened.
-const CACHE = "dead-signal-v2";
+const CACHE = "dead-signal-v3";
 const PRECACHE = ["/", "/play", "/manifest.webmanifest", "/icon.svg"];
 
 self.addEventListener("install", (e) => {
@@ -19,19 +19,22 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET" || new URL(req.url).origin !== self.location.origin) return;
-  // Pages: try the network first so updates show up, fall back to the copy.
-  // Everything else: use the copy first, it never changes between builds.
+  // Build files (/_next/static/) have a new name in every version, so the copy
+  // is always right: use it first. Everything else (pages, pictures) can change
+  // under the same name: get the latest when online, use the copy when offline.
   const fromNetwork = () =>
-    fetch(req).then((res) => {
+    // A page request can't be re-sent with options, so fetch it by its address.
+    fetch(req.mode === "navigate" ? req.url : req, { cache: "no-cache" }).then((res) => {
       if (res.ok) {
         const copy = res.clone();
         caches.open(CACHE).then((c) => c.put(req, copy));
       }
       return res;
     });
-  if (req.mode === "navigate") {
-    e.respondWith(fromNetwork().catch(() => caches.match(req).then((r) => r || caches.match("/"))));
-  } else {
+  if (new URL(req.url).pathname.startsWith("/_next/static/")) {
     e.respondWith(caches.match(req).then((r) => r || fromNetwork()));
+  } else {
+    const fallback = req.mode === "navigate" ? caches.match("/") : undefined;
+    e.respondWith(fromNetwork().catch(() => caches.match(req).then((r) => r || fallback)));
   }
 });
