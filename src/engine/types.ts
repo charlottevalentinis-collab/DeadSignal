@@ -58,8 +58,6 @@ export interface Hotspot extends Gated {
   closeup: string;
   /** Close-up picture shown above the text. */
   image?: string;
-  /** What exactly the picture shows (the ⓘ info point). */
-  info?: string;
   clue?: string;
   device?: string;
   grants?: Fact[];

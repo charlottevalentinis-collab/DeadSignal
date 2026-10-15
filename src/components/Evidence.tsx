@@ -5,14 +5,12 @@ import { currentCase as C } from "@/engine/case";
 import { useFacts, useGame } from "@/engine/store";
 import type { Clue } from "@/engine/types";
 import { useUI } from "@/engine/ui";
-import { InfoImage, Picture, Sheet } from "./ui";
+import { Picture, Sheet } from "./ui";
 
-/** The picture (and ⓘ text) that goes with each clue, if any. */
-const PICTURES: Record<string, { image: string; info?: string }> = Object.fromEntries([
-  ...C.locations.flatMap((l) => l.hotspots).flatMap((h) => (h.clue && h.image ? [[h.clue, { image: h.image, info: h.info }]] : [])),
-  ...C.devices
-    .flatMap((d) => d.apps.photos ?? [])
-    .flatMap((p) => (p.clue && p.image ? [[p.clue, { image: p.image, info: p.info }]] : [])),
+/** The picture that goes with each clue, if any. */
+const PICTURES: Record<string, string> = Object.fromEntries([
+  ...C.locations.flatMap((l) => l.hotspots).flatMap((h) => (h.clue && h.image ? [[h.clue, h.image]] : [])),
+  ...C.devices.flatMap((d) => d.apps.photos ?? []).flatMap((p) => (p.clue && p.image ? [[p.clue, p.image]] : [])),
 ]);
 
 const clock = (t: number) => new Date(t).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -34,7 +32,7 @@ export function Evidence() {
         <div key={c.id} className="flex gap-3 rounded-xl border border-line bg-panel p-3">
           {PICTURES[c.id] && (
             <button onClick={() => setOpen(c)} aria-label={`Look at ${c.name}`} className="shrink-0">
-              <Picture src={PICTURES[c.id].image} alt={c.name} className="h-16 w-20 rounded-md object-cover" />
+              <Picture src={PICTURES[c.id]} alt={c.name} className="h-16 w-20 rounded-md object-cover" />
             </button>
           )}
           <div className="min-w-0 flex-1">
@@ -52,9 +50,7 @@ export function Evidence() {
       ))}
       <Sheet open={!!open} onClose={() => setOpen(null)} title={open?.name ?? ""}>
         {open && PICTURES[open.id] && (
-          <div className="mb-3">
-            <InfoImage src={PICTURES[open.id].image} alt={open.name} info={PICTURES[open.id].info} className="rounded-lg border border-line" />
-          </div>
+          <Picture src={PICTURES[open.id]} alt={open.name} className="mb-3 w-full rounded-lg border border-line" />
         )}
         <p className="leading-relaxed">{open?.description}</p>
       </Sheet>

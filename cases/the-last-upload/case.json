@@ -19,13 +19,13 @@
       "backdrop": "linear-gradient(160deg,#2b2a33 0%,#3a3442 45%,#1c1b22 100%)",
       "exits": ["kitchen", "bedroom", "office"],
       "hotspots": [
-        { "id": "h_body", "image": "/cases/the-last-upload/art/closeup-body.svg", "info": "The chalk outline where Mara was found, next to the chipped corner of the coffee table. The yellow markers number what the police noted: blood by her head, the rug, the table corner and her slippers.", "label": "Chalk outline", "x": 48, "y": 70, "closeup": "Where Mara was found. The corner of the coffee table is chipped and stained. Her slippers are side by side, neatly, a metre away. People who fall don't usually step out of their slippers first.", "clue": "crime_report" },
-        { "id": "h_wine", "image": "/cases/the-last-upload/art/closeup-wine.svg", "info": "An open bottle of red with barely one glass gone, and a single wine glass wiped completely clean: not one fingerprint, not even Mara's.", "label": "Wine bottle", "x": 30, "y": 58, "closeup": "An open bottle of red, barely a glass gone. The single glass beside it has been wiped so clean there isn't a fingerprint on it — not even Mara's.", "clue": "wine_bottle" },
-        { "id": "h_bowl", "image": "/cases/the-last-upload/art/closeup-bowl.svg", "info": "The bowl by the front door: loose coins and a spare key ring with a tag marked 'T'.", "label": "Key bowl", "x": 82, "y": 46, "closeup": "A ceramic bowl by the door. Among the coins: a spare key on a tag marked 'T'.", "clue": "spare_key" },
-        { "id": "h_shelf", "image": "/cases/the-last-upload/art/closeup-mum_card.svg", "info": "A card Mara wrote for her mum's 60th birthday, Sunday 12 April. She never sent it.", "label": "Birthday card", "x": 15, "y": 30, "closeup": "A card on the shelf: 'Happy 60th, Mum! Sunday 12 April — love, Mara.' A copy she never sent?", "clue": "mum_card" },
-        { "id": "h_invite", "image": "/cases/the-last-upload/art/closeup-invite.svg", "info": "Left: the front of the Loopwire launch invitation. Right: the back, in Mara's handwriting: 'Talk to N. after!!'", "label": "Invitation", "x": 66, "y": 34, "closeup": "A thick card: 'Loopwire — Launch Night. Friday 19:00, The Glasshouse.' On the back, in Mara's hand: 'Talk to N. after!!'", "clue": "launch_invite" },
-        { "id": "h_slippers", "image": "/cases/the-last-upload/art/closeup-slippers.svg", "info": "Mara's own slippers, paired neatly a metre from the body, as if someone placed them there.", "label": "Slippers", "x": 64, "y": 84, "closeup": "Mara's slippers, pink and grey, set neatly side by side a metre from where she lay. Nobody trips and falls out of their slippers this tidily." },
-        { "id": "h_tablet", "image": "/cases/the-last-upload/art/closeup-tablet_sofa.svg", "info": "The shared family tablet, left on the sofa. Pick it up to look inside.", "label": "Tablet on the sofa", "x": 58, "y": 52, "closeup": "A family tablet in a scuffed case, left on the sofa cushions.", "device": "family_tablet" }
+        { "id": "h_body", "image": "/cases/the-last-upload/art/closeup-body.svg", "label": "Chalk outline", "x": 48, "y": 70, "closeup": "Where Mara was found. The corner of the coffee table is chipped and stained. Her slippers are side by side, neatly, a metre away. People who fall don't usually step out of their slippers first.", "clue": "crime_report" },
+        { "id": "h_wine", "image": "/cases/the-last-upload/art/closeup-wine.svg", "label": "Wine bottle", "x": 30, "y": 58, "closeup": "An open bottle of red, barely a glass gone. The single glass beside it has been wiped so clean there isn't a fingerprint on it — not even Mara's.", "clue": "wine_bottle" },
+        { "id": "h_bowl", "image": "/cases/the-last-upload/art/closeup-bowl.svg", "label": "Key bowl", "x": 82, "y": 46, "closeup": "A ceramic bowl by the door. Among the coins: a spare key on a tag marked 'T'.", "clue": "spare_key" },
+        { "id": "h_shelf", "image": "/cases/the-last-upload/art/closeup-mum_card.svg", "label": "Birthday card", "x": 15, "y": 30, "closeup": "A card on the shelf: 'Happy 60th, Mum! Sunday 12 April — love, Mara.' A copy she never sent?", "clue": "mum_card" },
+        { "id": "h_invite", "image": "/cases/the-last-upload/art/closeup-invite.svg", "label": "Invitation", "x": 66, "y": 34, "closeup": "A thick card: 'Loopwire — Launch Night. Friday 19:00, The Glasshouse.' On the back, in Mara's hand: 'Talk to N. after!!'", "clue": "launch_invite" },
+        { "id": "h_slippers", "image": "/cases/the-last-upload/art/closeup-slippers.svg", "label": "Slippers", "x": 64, "y": 84, "closeup": "Mara's slippers, pink and grey, set neatly side by side a metre from where she lay. Nobody trips and falls out of their slippers this tidily." },
+        { "id": "h_tablet", "image": "/cases/the-last-upload/art/closeup-tablet_sofa.svg", "label": "Tablet on the sofa", "x": 58, "y": 52, "closeup": "A family tablet in a scuffed case, left on the sofa cushions.", "device": "family_tablet" }
       ]
     },
     {
@@ -37,9 +37,9 @@
       "backdrop": "linear-gradient(170deg,#2e3532 0%,#3c4640 50%,#1b201e 100%)",
       "exits": ["living"],
       "hotspots": [
-        { "id": "h_sink", "image": "/cases/the-last-upload/art/closeup-sink.svg", "info": "Left cup: rinsed clean. Right cup: a pale, chalky ring at the bottom, something that didn't dissolve in the tea.", "label": "Sink", "x": 40, "y": 62, "closeup": "Two tea cups in the sink. One has been rinsed. The other still has a pale, chalky ring at the bottom, like something didn't dissolve.", "clue": "tea_cups" },
-        { "id": "h_fridge", "image": "/cases/the-last-upload/art/closeup-fridge_note.svg", "info": "Mara's sticky notes. The big yellow one says the laptop code is her mum's birthday, written day first, then month.", "label": "Sticky notes", "x": 76, "y": 30, "closeup": "Dozens of notes on the fridge. Groceries, a dentist reminder, and one in capitals: 'LAPTOP = MUM'S BIRTHDAY (day + month)'.", "clue": "kitchen_note" },
-        { "id": "h_tea", "image": "/cases/the-last-upload/art/closeup-tea_box.svg", "info": "A box of chamomile among Mara's usual green tea, with a Corner Pharmacy price sticker. It isn't her tea.", "label": "Tea box", "x": 22, "y": 40, "closeup": "An open box of chamomile tea. Every other tea in the cupboard is the same green tea brand. This one has a price sticker: 'Corner Pharmacy — open 24h'.", "clue": "chamomile_box" }
+        { "id": "h_sink", "image": "/cases/the-last-upload/art/closeup-sink.svg", "label": "Sink", "x": 40, "y": 62, "closeup": "Two tea cups in the sink. One has been rinsed. The other still has a pale, chalky ring at the bottom, like something didn't dissolve.", "clue": "tea_cups" },
+        { "id": "h_fridge", "image": "/cases/the-last-upload/art/closeup-fridge_note.svg", "label": "Sticky notes", "x": 76, "y": 30, "closeup": "Dozens of notes on the fridge. Groceries, a dentist reminder, and one in capitals: 'LAPTOP = MUM'S BIRTHDAY (day + month)'.", "clue": "kitchen_note" },
+        { "id": "h_tea", "image": "/cases/the-last-upload/art/closeup-tea_box.svg", "label": "Tea box", "x": 22, "y": 40, "closeup": "An open box of chamomile tea. Every other tea in the cupboard is the same green tea brand. This one has a price sticker: 'Corner Pharmacy — open 24h'.", "clue": "chamomile_box" }
       ]
     },
     {
@@ -51,9 +51,9 @@
       "backdrop": "linear-gradient(165deg,#2d2b3b 0%,#3b3550 50%,#1a1824 100%)",
       "exits": ["living"],
       "hotspots": [
-        { "id": "h_phone", "image": "/cases/the-last-upload/art/closeup-phone_nightstand.svg", "info": "Mara's phone, face down on the nightstand, 12% battery left.", "label": "Phone on nightstand", "x": 70, "y": 50, "closeup": "Mara's phone, face down, 12% battery.", "device": "mara_phone" },
-        { "id": "h_bed", "image": "/cases/the-last-upload/art/closeup-bed.svg", "info": "The bed is made and the covers are untouched: Mara never went to sleep.", "label": "Bed", "x": 50, "y": 67, "closeup": "The bed is perfectly made. The covers haven't been turned back. Mara never went to bed last night." },
-        { "id": "h_pills", "image": "/cases/the-last-upload/art/closeup-pills.svg", "info": "Mara's prescription sleeping tablets: 30 refilled eight days ago, only 4 left.", "label": "Pill bottle", "x": 30, "y": 48, "closeup": "Prescription sleeping pills in Mara's name, refilled eight days ago. Thirty tablets. Four are left.", "clue": "pill_bottle" }
+        { "id": "h_phone", "image": "/cases/the-last-upload/art/closeup-phone_nightstand.svg", "label": "Phone on nightstand", "x": 70, "y": 50, "closeup": "Mara's phone, face down, 12% battery.", "device": "mara_phone" },
+        { "id": "h_bed", "image": "/cases/the-last-upload/art/closeup-bed.svg", "label": "Bed", "x": 50, "y": 67, "closeup": "The bed is perfectly made. The covers haven't been turned back. Mara never went to bed last night." },
+        { "id": "h_pills", "image": "/cases/the-last-upload/art/closeup-pills.svg", "label": "Pill bottle", "x": 30, "y": 48, "closeup": "Prescription sleeping pills in Mara's name, refilled eight days ago. Thirty tablets. Four are left.", "clue": "pill_bottle" }
       ]
     },
     {
@@ -65,9 +65,9 @@
       "backdrop": "linear-gradient(170deg,#2a3038 0%,#38424e 50%,#191d22 100%)",
       "exits": ["living"],
       "hotspots": [
-        { "id": "h_laptop", "image": "/cases/the-last-upload/art/closeup-laptop_desk.svg", "info": "Mara's laptop on her desk, locked.", "label": "Laptop", "x": 50, "y": 55, "closeup": "Mara's laptop, lid closed, still plugged in.", "device": "mara_laptop" },
-        { "id": "h_alarm", "image": "/cases/the-last-upload/art/closeup-alarm.svg", "info": "The office alarm keypad. The buttons 0, 2 and 9 are worn shiny from daily use.", "label": "Alarm keypad", "x": 86, "y": 36, "closeup": "The office alarm keypad. Four buttons are worn shiny: 0, 2, 2 — no — 0, 2 and 9. Someone presses the same code a lot.", "clue": "alarm_keypad" },
-        { "id": "h_books", "image": "/cases/the-last-upload/art/closeup-statements.svg", "info": "Bank statements hidden behind the books. Yellow rows are transfers to an account ending 7731. Red note in Mara's hand: 'N. signs off all payments. Since March.'", "label": "Behind the books", "x": 20, "y": 32, "requires": "clue:statements_note", "closeup": "Behind a row of paperbacks: a folder of printed bank statements. Fourteen transfers to an account ending 7731 are highlighted in yellow. In the margin: 'N. signs off all payments. Since March.'", "clue": "statements" }
+        { "id": "h_laptop", "image": "/cases/the-last-upload/art/closeup-laptop_desk.svg", "label": "Laptop", "x": 50, "y": 55, "closeup": "Mara's laptop, lid closed, still plugged in.", "device": "mara_laptop" },
+        { "id": "h_alarm", "image": "/cases/the-last-upload/art/closeup-alarm.svg", "label": "Alarm keypad", "x": 86, "y": 36, "closeup": "The office alarm keypad. Four buttons are worn shiny: 0, 2, 2 — no — 0, 2 and 9. Someone presses the same code a lot.", "clue": "alarm_keypad" },
+        { "id": "h_books", "image": "/cases/the-last-upload/art/closeup-statements.svg", "label": "Behind the books", "x": 20, "y": 32, "requires": "clue:statements_note", "closeup": "Behind a row of paperbacks: a folder of printed bank statements. Fourteen transfers to an account ending 7731 are highlighted in yellow. In the margin: 'N. signs off all payments. Since March.'", "clue": "statements" }
       ]
     },
     {
@@ -80,9 +80,9 @@
       "backdrop": "linear-gradient(160deg,#3a2a2a 0%,#4a3434 50%,#1f1616 100%)",
       "exits": [],
       "hotspots": [
-        { "id": "h_receipt", "image": "/cases/the-last-upload/art/closeup-receipt.svg", "info": "A half-burnt receipt from Corner Pharmacy, Friday 22:21: chamomile tea and a pill crusher.", "label": "Burnt paper", "x": 38, "y": 60, "closeup": "A half-burned receipt in the sink. Still readable: 'Corner Pharmacy — Fri 22:21 — Chamomile tea x1 — Pill crusher x1'.", "clue": "burned_receipt" },
-        { "id": "h_card", "image": "/cases/the-last-upload/art/closeup-nina_card.svg", "info": "A birthday card from Mara to Nina: 3rd of September.", "label": "Birthday card", "x": 72, "y": 30, "closeup": "A card on the fridge: 'Happy birthday Nina! 3rd of September. The office won't run without you — M.'", "clue": "nina_card" },
-        { "id": "h_ntablet", "image": "/cases/the-last-upload/art/closeup-nina_tablet.svg", "info": "Nina's tablet, still charging on the counter. Locked.", "label": "Tablet", "x": 55, "y": 48, "closeup": "Nina's tablet, forgotten on the kitchen counter, still charging.", "device": "nina_tablet" }
+        { "id": "h_receipt", "image": "/cases/the-last-upload/art/closeup-receipt.svg", "label": "Burnt paper", "x": 38, "y": 60, "closeup": "A half-burned receipt in the sink. Still readable: 'Corner Pharmacy — Fri 22:21 — Chamomile tea x1 — Pill crusher x1'.", "clue": "burned_receipt" },
+        { "id": "h_card", "image": "/cases/the-last-upload/art/closeup-nina_card.svg", "label": "Birthday card", "x": 72, "y": 30, "closeup": "A card on the fridge: 'Happy birthday Nina! 3rd of September. The office won't run without you — M.'", "clue": "nina_card" },
+        { "id": "h_ntablet", "image": "/cases/the-last-upload/art/closeup-nina_tablet.svg", "label": "Tablet", "x": 55, "y": 48, "closeup": "Nina's tablet, forgotten on the kitchen counter, still charging.", "device": "nina_tablet" }
       ]
     }
   ],
