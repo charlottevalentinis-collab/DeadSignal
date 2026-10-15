@@ -6,7 +6,7 @@ import { isVisible } from "@/engine/rules";
 import { useFacts, useGame } from "@/engine/store";
 import type { Hotspot } from "@/engine/types";
 import { useUI } from "@/engine/ui";
-import { Picture, Sheet } from "./ui";
+import { InfoImage, Picture, Sheet } from "./ui";
 
 // Crime scene: one drawn illustration per viewpoint with tappable
 // hotspots. Later this becomes a 360° photo viewer with the same hotspots.
@@ -101,7 +101,9 @@ export function Scene() {
 
       <Sheet open={!!closeup} onClose={close} title={closeup?.label ?? ""}>
         {closeup?.image && (
-          <Picture src={closeup.image} alt={closeup.label} className="mb-3 aspect-[4/3] w-full rounded-lg border border-line object-cover" />
+          <div className="mb-3">
+            <InfoImage src={closeup.image} alt={closeup.label} info={closeup.info} className="aspect-[4/3] rounded-lg border border-line object-cover" />
+          </div>
         )}
         <p className="leading-relaxed">{closeup?.closeup}</p>
         {closeup?.device && (

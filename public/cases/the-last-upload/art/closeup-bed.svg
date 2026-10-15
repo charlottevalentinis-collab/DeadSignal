@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <radialGradient id="vig" cx="50%" cy="45%" r="70%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="4"/></filter>
+  <filter id="blur1"><feGaussianBlur stdDeviation="1"/></filter>
+  <linearGradient id="fabric" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a7a9ad"/><stop offset="1" stop-color="#7c7f84"/></linearGradient>
+    <linearGradient id="sheet" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a6a96"/><stop offset="1" stop-color="#3b4870"/></linearGradient>
+    <linearGradient id="pillow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6c7cab"/><stop offset="1" stop-color="#4a5884"/></linearGradient>
+    <filter id="fuzz"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .18 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+    <linearGradient id="wall2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e2b3a"/><stop offset="1" stop-color="#232130"/></linearGradient>
+</defs>
+<rect width="400" height="300" fill="url(#wall2)"/>
+<rect y="248" width="400" height="52" fill="#1c1a24"/>
+<ellipse cx="200" cy="258" rx="190" ry="12" fill="#000" opacity=".5" filter="url(#soft)"/>
+<!-- headboard cushions -->
+<rect x="62" y="70" width="136" height="104" rx="14" fill="url(#fabric)"/><rect x="202" y="70" width="136" height="104" rx="14" fill="url(#fabric)"/>
+<rect x="62" y="70" width="276" height="104" rx="14" fill="#000" filter="url(#fuzz)"/>
+<path d="M62 76 h136 M202 76 h136" stroke="#c9cbcf" stroke-width="3" opacity=".7"/>
+<!-- pillows -->
+<rect x="84" y="126" width="112" height="40" rx="16" fill="url(#pillow)"/><rect x="204" y="122" width="112" height="42" rx="16" fill="url(#pillow)"/>
+<path d="M96 134 q40 -8 90 0" stroke="#fff" stroke-opacity=".18" stroke-width="3" fill="none"/>
+<!-- mattress / sheets, perfectly smooth = not slept in -->
+<path d="M44 168 q156 -14 312 0 l8 64 h-328 z" fill="url(#sheet)"/>
+<path d="M60 176 q140 -10 280 0" stroke="#fff" stroke-opacity=".12" stroke-width="2" fill="none"/>
+<!-- throw blanket with fringe -->
+<path d="M262 160 q60 2 86 8 l18 78 q-40 8 -64 -6 q-30 -40 -40 -80 z" fill="#3e4a72"/>
+<path d="M262 160 q60 2 86 8 l18 78 q-40 8 -64 -6 q-30 -40 -40 -80 z" fill="#000" filter="url(#fuzz)"/>
+<line x1="304" y1="240" x2="303" y2="254" stroke="#3e4a72" stroke-width="2"/><line x1="310" y1="241" x2="309" y2="255" stroke="#3e4a72" stroke-width="2"/><line x1="316" y1="240" x2="315" y2="256" stroke="#3e4a72" stroke-width="2"/><line x1="322" y1="241" x2="321" y2="254" stroke="#3e4a72" stroke-width="2"/><line x1="328" y1="240" x2="327" y2="255" stroke="#3e4a72" stroke-width="2"/><line x1="334" y1="241" x2="333" y2="256" stroke="#3e4a72" stroke-width="2"/><line x1="340" y1="240" x2="339" y2="254" stroke="#3e4a72" stroke-width="2"/><line x1="346" y1="241" x2="345" y2="255" stroke="#3e4a72" stroke-width="2"/><line x1="352" y1="240" x2="351" y2="256" stroke="#3e4a72" stroke-width="2"/><line x1="358" y1="241" x2="357" y2="254" stroke="#3e4a72" stroke-width="2"/>
+<!-- upholstered base -->
+<rect x="28" y="226" width="344" height="32" rx="12" fill="url(#fabric)"/>
+<rect x="28" y="226" width="344" height="32" rx="12" fill="#000" filter="url(#fuzz)"/>
+<rect x="58" y="256" width="12" height="8" fill="#111"/><rect x="330" y="256" width="12" height="8" fill="#111"/>
+<text x="200" y="290" font-size="13" font-family="Georgia" font-style="italic" fill="#efe6d6" text-anchor="middle">covers untouched — nobody slept here</text>
+
+<rect width="400" height="300" fill="url(#vig)"/>
+</svg>

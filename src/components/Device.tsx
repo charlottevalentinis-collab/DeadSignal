@@ -19,7 +19,7 @@ import type {
   Thread,
 } from "@/engine/types";
 import { useUI } from "@/engine/ui";
-import { Picture } from "./ui";
+import { InfoImage } from "./ui";
 
 // The fictional OS ("Signal OS"): one set of apps reused for every device,
 // skinned by the owner's wallpaper. No real brands.
@@ -158,9 +158,9 @@ const APPS: { [K in AppId]-?: AppDef<NonNullable<DeviceT["apps"][K]>[number]> } 
   },
 };
 
-function PhotoImage({ p }: { p: Photo }) {
+function PhotoImage({ p, onOpen }: { p: Photo; onOpen?: () => void }) {
   return p.image ? (
-    <Picture src={p.image} alt={p.caption} className="aspect-square w-full rounded-xl object-cover" />
+    <InfoImage src={p.image} alt={p.caption} info={p.info ?? p.scene} onOpen={onOpen} className="aspect-square rounded-xl object-cover" />
   ) : (
     <div className="flex aspect-square items-center justify-center rounded-xl bg-white/10 p-6 text-center">{p.scene}</div>
   );
@@ -171,11 +171,13 @@ function PhotoGrid({ photos, open }: { photos: Photo[]; open: (p: Photo) => void
   return (
     <div className="grid grid-cols-2 gap-3">
       {photos.map((p) => (
-        <button key={p.id} onClick={() => open(p)} className="flex flex-col gap-1 text-left">
-          <PhotoImage p={p} />
-          <span className="line-clamp-3 text-[11px] leading-snug">{p.caption}</span>
-          <span className="text-[10px] opacity-50">{p.time}</span>
-        </button>
+        <div key={p.id} className="flex flex-col gap-1">
+          <PhotoImage p={p} onOpen={() => open(p)} />
+          <button onClick={() => open(p)} className="flex flex-col gap-1 text-left">
+            <span className="line-clamp-3 text-[11px] leading-snug">{p.caption}</span>
+            <span className="text-[10px] opacity-50">{p.time}</span>
+          </button>
+        </div>
       ))}
     </div>
   );

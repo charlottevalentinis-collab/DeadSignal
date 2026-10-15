@@ -58,6 +58,8 @@ export interface Hotspot extends Gated {
   closeup: string;
   /** Close-up picture shown above the text. */
   image?: string;
+  /** What exactly the picture shows (the ⓘ info point). */
+  info?: string;
   clue?: string;
   device?: string;
   grants?: Fact[];
@@ -119,6 +121,8 @@ export interface Call extends Item {
 export interface Photo extends Item {
   caption: string;
   image?: string;
+  /** What exactly the picture shows (the ⓘ info point). */
+  info?: string;
   time: string;
   place: string;
   scene: string;
@@ -176,6 +180,8 @@ export interface Suspect extends Gated {
   portrait: string;
   image?: string;
   bio: string;
+  /** Clues that can be attached when accusing this suspect. */
+  evidence: string[];
   /** After this fact the suspect can no longer be interviewed. */
   absentWhen?: Fact;
   absentText?: string;
@@ -199,6 +205,8 @@ export interface Question extends Gated {
 export interface Option extends Gated {
   id: string;
   label: string;
+  /** Clues that can be attached to this answer (true or misleading). */
+  evidence: string[];
 }
 
 export interface Accusation {

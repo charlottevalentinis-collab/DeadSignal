@@ -61,11 +61,20 @@ export function Accuse() {
   const ruledOut = (part: Part, id: string) => attempts.some((a) => a[part] === id && !debrief(C, a)[part].right);
 
   const options: Record<Part, Option[]> = {
-    who: C.suspects.filter((s) => isVisible(s, facts)).map((s) => ({ id: s.id, label: `${s.name} — ${s.role}` })),
+    who: C.suspects.filter((s) => isVisible(s, facts)).map((s) => ({ id: s.id, label: `${s.name} — ${s.role}`, evidence: s.evidence })),
     how: C.accusation.how.filter((o) => isVisible(o, facts)),
     why: C.accusation.why.filter((o) => isVisible(o, facts)),
   };
-  const clues = C.clues.filter((c) => facts.has(`clue:${c.id}`));
+  const found = C.clues.filter((c) => facts.has(`clue:${c.id}`));
+  /** Only the found clues that relate to the chosen answer. */
+  const cluesFor = (part: Part, id: string) => {
+    const related = options[part].find((o) => o.id === id)?.evidence ?? [];
+    return found.filter((c) => related.includes(c.id));
+  };
+  const choose = (part: Part, id: string) => {
+    setPick({ ...pick, [part]: id });
+    if (!cluesFor(part, id).some((c) => c.id === proof[part])) setProof({ ...proof, [part]: "" });
+  };
   const ready = PARTS.every((p) => pick[p] && proof[p]);
 
   const submit = () => {
@@ -87,7 +96,7 @@ export function Accuse() {
             key={o.id}
             className={`flex items-start gap-3 rounded-lg border p-3 text-sm ${pick[part] === o.id ? "border-accent bg-accent-soft" : "border-line"} ${out ? "opacity-45" : ""}`}
           >
-            <input type="radio" name={part} className="mt-0.5 accent-[var(--accent)]" checked={pick[part] === o.id} onChange={() => setPick({ ...pick, [part]: o.id })} />
+            <input type="radio" name={part} className="mt-0.5 accent-[var(--accent)]" checked={pick[part] === o.id} onChange={() => choose(part, o.id)} />
             <span className={out ? "line-through" : ""}>{o.label}</span>
             {out && <span className="ml-auto shrink-0 text-[11px] uppercase text-muted">ruled out</span>}
           </label>
@@ -96,11 +105,18 @@ export function Accuse() {
       <select
         value={proof[part]}
         onChange={(e) => setProof({ ...proof, [part]: e.target.value })}
-        className="rounded-lg border border-line bg-panel-2 p-3 text-sm"
+        disabled={!pick[part]}
+        className="rounded-lg border border-line bg-panel-2 p-3 text-sm disabled:opacity-40"
         aria-label={`Evidence for ${title}`}
       >
-        <option value="">Attach one piece of evidence…</option>
-        {clues.map((c) => (
+        <option value="">
+          {!pick[part]
+            ? "Pick an answer first…"
+            : cluesFor(part, pick[part]).length
+              ? "Attach one piece of evidence…"
+              : "No related evidence found yet"}
+        </option>
+        {cluesFor(part, pick[part]).map((c) => (
           <option key={c.id} value={c.id}>
             {c.name}
           </option>

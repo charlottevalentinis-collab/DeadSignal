@@ -40,6 +40,34 @@ it are both known.
 After editing, run `npm test`: it checks that every clue can be found, every
 reference exists and the case can still be solved.
 
+## Changing a picture
+
+All pictures live in `public/cases/the-last-upload/art/`. Each one is linked
+from `cases/the-last-upload/case.json` by an `"image"` line, for example:
+
+```json
+{ "id": "h_wine", "image": "/cases/the-last-upload/art/closeup-wine.svg", "info": "An open bottle of red…", ... }
+```
+
+To replace one with your own photo, straight from the GitHub website:
+
+1. Open the repository on GitHub, go to `public/cases/the-last-upload/art/`,
+   click **Add file → Upload files** and drop your photo (e.g. `wine-glass.jpg`).
+   Use **your own photos**, or images you have the right to use (not random
+   pictures from the web: the game is public).
+2. Open `cases/the-last-upload/case.json`, click the ✏️ pencil, find the line
+   with the old picture and change only the file name:
+   `"image": "/cases/the-last-upload/art/wine-glass.jpg"`.
+3. Click **Commit changes**. Vercel puts the new version online in about a minute.
+
+Tips:
+- **Rooms** should be landscape 4:3 (e.g. 1600 × 1200). The tap points use
+  `"x"` and `"y"` in percent of the picture (`"x": 50, "y": 50` is the centre),
+  so after changing a room photo, move them onto the right objects.
+- **Close-ups** are 4:3 too; **gallery photos** are square.
+- The `"info"` text next to a picture is what players read when they tap the ⓘ.
+- Keep photos small (under ~500 KB each, JPG) so the game loads fast on phones.
+
 ## Running it on your computer (optional)
 
 1. Install [Node.js](https://nodejs.org) (the LTS version).

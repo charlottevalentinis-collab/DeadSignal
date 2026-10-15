@@ -90,6 +90,23 @@ describe("case file integrity", () => {
     expect(C.suspects.map((s) => s.id)).toContain(solution.who);
   });
 
+  it("lists related evidence for every answer, including all the proof", () => {
+    const { solution, proof } = C.accusation;
+    const lists = {
+      who: C.suspects.map((s) => ({ id: s.id, evidence: s.evidence })),
+      how: C.accusation.how,
+      why: C.accusation.why,
+    };
+    for (const part of ["who", "how", "why"] as const) {
+      for (const o of lists[part]) {
+        expect(o.evidence.length, o.id).toBeGreaterThan(0);
+        o.evidence.forEach((id) => expect(clueIds, `${o.id}: ${id}`).toContain(id));
+      }
+      const right = lists[part].find((o) => o.id === solution[part])!;
+      proof[part].forEach((id) => expect(right.evidence, `${part}: ${id}`).toContain(id));
+    }
+  });
+
   it("only points to pictures that exist", () => {
     const images = [
       ...C.locations.flatMap((l) => [l.image, ...l.hotspots.map((h) => h.image)]),

@@ -27,11 +27,12 @@
 </g>
 <ellipse cx="285" cy="70" rx="80" ry="70" fill="url(#cold)"/>
 <!-- headboard + bed -->
-<rect x="150" y="105" width="100" height="45" rx="6" fill="#3e3550"/>
-<path d="M140 150 L260 150 L272 250 L128 250 Z" fill="#cfc7dc"/>
-<path d="M140 150 L260 150 L262 175 L138 175 Z" fill="#e8e3f0"/>
-<rect x="152" y="132" width="40" height="18" rx="6" fill="#f2eff6"/><rect x="208" y="132" width="40" height="18" rx="6" fill="#f2eff6"/>
-<path d="M128 250 L272 250 L272 262 L128 262 Z" fill="#3e3550"/>
+<rect x="148" y="100" width="51" height="52" rx="7" fill="#9a9ca0"/><rect x="201" y="100" width="51" height="52" rx="7" fill="#9a9ca0"/>
+<path d="M140 150 L260 150 L272 250 L128 250 Z" fill="#46548a"/>
+<path d="M140 150 L260 150 L262 175 L138 175 Z" fill="#56649a"/>
+<rect x="152" y="134" width="44" height="17" rx="7" fill="#6c7cab"/><rect x="204" y="132" width="44" height="18" rx="7" fill="#6c7cab"/>
+<path d="M232 152 L262 154 L272 240 L250 236 Z" fill="#3a466e"/>
+<path d="M124 250 L276 250 L276 266 L124 266 Z" fill="#8a8c90" rx="6"/>
 <!-- left nightstand + pills (h_pills 120,144) -->
 <rect x="92" y="150" width="48" height="50" fill="#4a3a2e"/><rect x="96" y="170" width="40" height="2" fill="#2e241d"/>
 <rect x="114" y="134" width="12" height="16" rx="2" fill="#e08b3a" opacity=".9"/>
