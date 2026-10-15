@@ -51,3 +51,9 @@ export function Toast() {
     </div>
   );
 }
+
+/** A case illustration. Plain <img>: the site is static, nothing to optimise. */
+export function Picture({ src, alt, className }: { src: string; alt: string; className?: string }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={src} alt={alt} className={className} draggable={false} />;
+}

@@ -19,6 +19,7 @@ import type {
   Thread,
 } from "@/engine/types";
 import { useUI } from "@/engine/ui";
+import { Picture } from "./ui";
 
 // The fictional OS ("Signal OS"): one set of apps reused for every device,
 // skinned by the owner's wallpaper. No real brands.
@@ -79,7 +80,7 @@ const APPS: { [K in AppId]-?: AppDef<NonNullable<DeviceT["apps"][K]>[number]> } 
     row: (p: Photo) => ({ title: p.caption, sub: p.place, time: p.time }),
     detail: (p: Photo) => (
       <div className="flex flex-col gap-3 text-sm">
-        <div className="flex aspect-square items-center justify-center rounded-xl bg-white/10 p-6 text-center">{p.scene}</div>
+        <PhotoImage p={p} />
         <p>{p.caption}</p>
         <p className="opacity-60">
           📅 {p.time} · 📍 {p.place}
@@ -156,6 +157,29 @@ const APPS: { [K in AppId]-?: AppDef<NonNullable<DeviceT["apps"][K]>[number]> } 
     ),
   },
 };
+
+function PhotoImage({ p }: { p: Photo }) {
+  return p.image ? (
+    <Picture src={p.image} alt={p.caption} className="aspect-square w-full rounded-xl object-cover" />
+  ) : (
+    <div className="flex aspect-square items-center justify-center rounded-xl bg-white/10 p-6 text-center">{p.scene}</div>
+  );
+}
+
+/** Gallery home: a grid of photos, each with its description underneath. */
+function PhotoGrid({ photos, open }: { photos: Photo[]; open: (p: Photo) => void }) {
+  return (
+    <div className="grid grid-cols-2 gap-3">
+      {photos.map((p) => (
+        <button key={p.id} onClick={() => open(p)} className="flex flex-col gap-1 text-left">
+          <PhotoImage p={p} />
+          <span className="line-clamp-3 text-[11px] leading-snug">{p.caption}</span>
+          <span className="text-[10px] opacity-50">{p.time}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
 
 export function DeviceView() {
   const { device: id, openDevice } = useUI();
@@ -297,12 +321,14 @@ function Home({ device }: { device: DeviceT }) {
         <button onClick={() => (item ? setItem(null) : setApp(null))} className="text-sm text-sky-300">
           ‹ {item ? def.label : "Home"}
         </button>
-        <span className="flex-1 text-center text-sm font-semibold">{item ? def.row(item).title : def.label}</span>
+        <span className="flex-1 truncate text-center text-sm font-semibold">{item ? def.row(item).title : def.label}</span>
         <span className="w-12" />
       </div>
       <div className="min-h-0 flex-1 overflow-y-auto p-3">
         {item ? (
           def.detail(item)
+        ) : app === "photos" ? (
+          <PhotoGrid photos={items as Photo[]} open={open} />
         ) : (
           sections
             .filter((s) => s.items.length)

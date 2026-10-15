@@ -47,21 +47,35 @@ export interface AccusationInput {
   proof: { who?: string; how?: string; why?: string };
 }
 
+export type Part = "who" | "how" | "why";
+export const PARTS: Part[] = ["who", "how", "why"];
+
+export interface PartResult {
+  /** The chosen answer is the true one. */
+  right: boolean;
+  /** The attached clue is accepted as proof of the true answer. */
+  proven: boolean;
+}
+
+/** What the prosecutor says about each part of an accusation. */
+export function debrief(c: CaseFile, a: AccusationInput): Record<Part, PartResult> {
+  const { solution, proof } = c.accusation;
+  const result = (p: Part): PartResult => {
+    const right = a[p] === solution[p];
+    return { right, proven: right && proof[p].includes(a.proof[p] ?? "") };
+  };
+  return { who: result("who"), how: result("how"), why: result("why") };
+}
+
 /**
  * Judges an accusation, following the PRD table:
  * right who/how/why with proof → solved; right who otherwise → released;
  * wrong who → twist the first time, killer escapes the second time.
  */
 export function judge(c: CaseFile, a: AccusationInput, wrongWhoSoFar: number): Outcome {
-  const { solution, proof } = c.accusation;
-  if (a.who !== solution.who) return wrongWhoSoFar === 0 ? "twist" : "escaped";
-  const proven =
-    a.how === solution.how &&
-    a.why === solution.why &&
-    proof.who.includes(a.proof.who ?? "") &&
-    proof.how.includes(a.proof.how ?? "") &&
-    proof.why.includes(a.proof.why ?? "");
-  return proven ? "solved" : "released";
+  const d = debrief(c, a);
+  if (!d.who.right) return wrongWhoSoFar === 0 ? "twist" : "escaped";
+  return PARTS.every((p) => d[p].proven) ? "solved" : "released";
 }
 
 export const RANKS = ["Rookie", "Constable", "Sergeant", "Detective", "Inspector"] as const;

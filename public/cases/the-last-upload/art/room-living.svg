@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <radialGradient id="lamp" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#f6c77d" stop-opacity=".55"/>
+    <stop offset="1" stop-color="#f6c77d" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="cold" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#8fb3d9" stop-opacity=".35"/>
+    <stop offset="1" stop-color="#8fb3d9" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="vignette" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".35"/>
+    <stop offset=".5" stop-color="#000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".45"/>
+  </linearGradient>
+</defs>
+<rect width="400" height="190" fill="#2c2a33"/>
+<rect y="190" width="400" height="110" fill="#1d1b21"/>
+<line x1="0" y1="190" x2="400" y2="190" stroke="#000" stroke-opacity=".4" stroke-width="2"/>
+
+<g>
+  <rect x="146" y="26" width="78" height="68" fill="#18161c"/>
+  <rect x="150" y="30" width="70" height="60" fill="#141a2b"/>
+  <circle cx="202.5" cy="48.0" r="6" fill="#d9dde8" opacity=".7"/>
+  <line x1="185.0" y1="30" x2="185.0" y2="90" stroke="#18161c" stroke-width="3"/>
+  <line x1="150" y1="60.0" x2="220" y2="60.0" stroke="#18161c" stroke-width="3"/>
+</g>
+<!-- door, right -->
+<rect x="350" y="55" width="44" height="135" fill="#3a2f28"/>
+<circle cx="358" cy="125" r="3" fill="#c9a96b"/>
+<!-- shelf, left wall -->
+<rect x="22" y="60" width="86" height="130" fill="#3b2f27"/>
+<rect x="26" y="64" width="78" height="2" fill="#000" opacity=".3"/>
+<rect x="22" y="100" width="86" height="4" fill="#2a211b"/>
+<rect x="22" y="140" width="86" height="4" fill="#2a211b"/>
+<rect x="30" y="112" width="8" height="28" fill="#7b4b3a"/><rect x="40" y="116" width="7" height="24" fill="#4f6a7a"/><rect x="49" y="110" width="9" height="30" fill="#a08a5c"/>
+<rect x="70" y="150" width="30" height="36" fill="#2b2a30"/>
+<!-- birthday card on shelf (h_shelf 60,90) -->
+<path d="M50 99 L58 78 L72 78 L66 99 Z" fill="#e9d9c0"/>
+<path d="M58 78 L66 99" stroke="#b9a68a" stroke-width="1"/>
+<text x="62" y="92" font-size="7" font-family="Georgia" fill="#b04a4a" text-anchor="middle">60</text>
+<!-- framed invitation on wall (h_invite 264,102) -->
+<rect x="246" y="84" width="36" height="36" fill="#1b1a1f" stroke="#c9a96b" stroke-width="2"/>
+<rect x="251" y="89" width="26" height="26" fill="#efe6d6"/>
+<text x="264" y="101" font-size="5" font-family="Helvetica" fill="#222" text-anchor="middle" font-weight="bold">LOOPWIRE</text>
+<text x="264" y="108" font-size="4" font-family="Helvetica" fill="#555" text-anchor="middle">launch night</text>
+<!-- lamp -->
+<ellipse cx="300" cy="120" rx="80" ry="70" fill="url(#lamp)"/>
+<rect x="312" y="96" width="4" height="70" fill="#222"/>
+<path d="M300 80 L328 80 L322 98 L306 98 Z" fill="#e6c78f"/>
+<!-- console + key bowl (h_bowl 328,138) -->
+<rect x="300" y="146" width="48" height="5" fill="#4a3a2e"/>
+<rect x="304" y="151" width="4" height="40" fill="#3b2f27"/><rect x="340" y="151" width="4" height="40" fill="#3b2f27"/>
+<path d="M314 138 Q328 152 342 138 Z" fill="#7aa2a8"/>
+<ellipse cx="328" cy="138" rx="14" ry="3" fill="#5c8187"/>
+<rect x="330" y="133" width="6" height="3" fill="#d9c27a"/>
+<!-- sofa with tablet (h_tablet 232,156) -->
+<rect x="165" y="120" width="140" height="40" rx="10" fill="#4c4459"/>
+<rect x="160" y="150" width="150" height="35" rx="8" fill="#5a516a"/>
+<rect x="155" y="135" width="18" height="52" rx="6" fill="#463e52"/>
+<rect x="297" y="135" width="18" height="52" rx="6" fill="#463e52"/>
+<line x1="235" y1="152" x2="235" y2="185" stroke="#463e52" stroke-width="2"/>
+<rect x="218" y="148" width="28" height="18" rx="2" fill="#111" transform="rotate(-8 232 156)"/>
+<rect x="221" y="151" width="22" height="12" fill="#3b4d6b" transform="rotate(-8 232 156)"/>
+<!-- rug, coffee table, chalk outline (h_body 192,210) -->
+<ellipse cx="200" cy="240" rx="150" ry="40" fill="#3a2a2e"/>
+<ellipse cx="200" cy="240" rx="130" ry="32" fill="none" stroke="#5a3c40" stroke-width="2"/>
+<rect x="215" y="200" width="80" height="10" fill="#5a4636"/>
+<rect x="219" y="210" width="5" height="22" fill="#4a3a2e"/><rect x="286" y="210" width="5" height="22" fill="#4a3a2e"/>
+<path d="M215 200 l-4 4 l4 4 z" fill="#5b1f22"/>
+<path d="M150 205 q10 -8 22 -2 q8 6 20 4 q10 -2 18 6 l-6 6 q-10 -6 -20 -3 l-8 18 l-8 -2 l4 -16 q-12 0 -22 -6 q-6 8 -4 18 l-8 0 q-2 -14 4 -23 z" fill="none" stroke="#f1efe8" stroke-width="1.6" stroke-dasharray="3 2" opacity=".9"/>
+<ellipse cx="248" cy="252" rx="6" ry="3" fill="#c8b8d8"/><ellipse cx="262" cy="254" rx="6" ry="3" fill="#c8b8d8"/>
+<ellipse cx="186" cy="228" rx="14" ry="4" fill="#5b1f22" opacity=".8"/>
+<!-- side table with wine (h_wine 120,174) -->
+<rect x="100" y="182" width="40" height="5" fill="#4a3a2e"/>
+<rect x="117" y="187" width="5" height="30" fill="#3b2f27"/>
+<rect x="110" y="150" width="9" height="32" rx="3" fill="#2a1416"/><rect x="112" y="142" width="5" height="10" fill="#2a1416"/>
+<path d="M126 168 q6 0 6 6 q0 6 -6 6 q-6 0 -6 -6 q0 -6 6 -6 z" fill="#cfd8de" opacity=".55"/>
+<rect x="125.5" y="180" width="1.5" height="8" fill="#cfd8de" opacity=".55"/>
+
+<rect width="400" height="300" fill="url(#vignette)"/>
+</svg>

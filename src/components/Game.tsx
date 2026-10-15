@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { currentCase as C } from "@/engine/case";
 import { useGame } from "@/engine/store";
 import { useUI, type Tab } from "@/engine/ui";
-import { Accuse } from "./Accuse";
+import { Accuse, ProsecutorNotes } from "./Accuse";
 import { DeviceView } from "./Device";
 import { Ending } from "./Ending";
 import { Devices, Evidence } from "./Evidence";
@@ -84,13 +84,14 @@ export function Game() {
             {p}
           </p>
         ))}
+        <ProsecutorNotes />
         <button
           onClick={() => {
             dismissVerdict();
             setTab("scene");
             go(C.twist.location);
           }}
-          className="mt-2 w-full rounded-lg bg-accent py-3 font-semibold text-white"
+          className="mt-4 w-full rounded-lg bg-accent py-3 font-semibold text-white"
         >
           Go to the new location
         </button>
@@ -102,7 +103,8 @@ export function Game() {
             {p}
           </p>
         ))}
-        <button onClick={dismissVerdict} className="mt-2 w-full rounded-lg border border-line py-3">
+        <ProsecutorNotes />
+        <button onClick={dismissVerdict} className="mt-4 w-full rounded-lg border border-line py-3">
           Back to the investigation
         </button>
       </Sheet>

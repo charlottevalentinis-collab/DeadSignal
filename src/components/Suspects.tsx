@@ -6,6 +6,15 @@ import { isVisible } from "@/engine/rules";
 import { useFacts, useGame } from "@/engine/store";
 import type { Question, Suspect } from "@/engine/types";
 import { useUI } from "@/engine/ui";
+import { Picture } from "./ui";
+
+function Face({ s, className }: { s: Suspect; className: string }) {
+  return s.image ? (
+    <Picture src={s.image} alt={s.name} className={`${className} object-cover`} />
+  ) : (
+    <span className={`${className} flex items-center justify-center bg-panel-2 text-3xl`}>{s.portrait}</span>
+  );
+}
 
 const REACTION: Record<string, string> = {
   admit: "admits",
@@ -31,7 +40,7 @@ export function Suspects() {
             : s.questions.filter((q) => isVisible(q, facts) && !facts.has(`asked:${q.id}`)).length;
           return (
             <button key={s.id} onClick={() => openSuspect(s.id)} className="flex items-center gap-4 rounded-xl border border-line bg-panel p-4 text-left">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-panel-2 text-3xl">{s.portrait}</span>
+              <Face s={s} className="h-14 w-14 shrink-0 rounded-full" />
               <span className="flex-1">
                 <span className="block font-semibold">{s.name}</span>
                 <span className="block text-sm text-muted">{s.role}</span>
@@ -64,7 +73,7 @@ function Interview({ s, onBack }: { s: Suspect; onBack: () => void }) {
         ← All suspects
       </button>
       <div className="flex items-center gap-4">
-        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-panel-2 text-4xl">{s.portrait}</span>
+        <Face s={s} className="h-16 w-16 shrink-0 rounded-full" />
         <div>
           <h2 className="text-xl font-semibold">{s.name}</h2>
           <p className="text-sm text-muted">{s.role}</p>
@@ -74,9 +83,9 @@ function Interview({ s, onBack }: { s: Suspect; onBack: () => void }) {
 
       {playing && (
         <div className="overflow-hidden rounded-xl border border-line bg-black">
-          <div className="flex aspect-video flex-col items-center justify-center gap-2 bg-gradient-to-b from-neutral-900 to-black p-4 text-center">
-            <span className="text-5xl">{s.portrait}</span>
-            <span className="text-[10px] uppercase tracking-widest text-white/40">video clip placeholder</span>
+          <div className="relative flex aspect-video items-center justify-center bg-gradient-to-b from-neutral-900 to-black">
+            <Face s={s} className="h-full max-w-full aspect-square" />
+            <span className="absolute bottom-2 right-3 text-[10px] uppercase tracking-widest text-white/50">video clip placeholder</span>
           </div>
           <div className="border-t border-line p-3">
             <p className="text-xs text-muted">

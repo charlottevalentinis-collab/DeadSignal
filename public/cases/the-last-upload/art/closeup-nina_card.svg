@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <radialGradient id="spot" cx="50%" cy="45%" r="65%">
+    <stop offset="0" stop-color="#fff" stop-opacity=".16"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".45"/>
+  </radialGradient>
+</defs><rect width="400" height="300" fill="#3b2f27"/>
+
+<rect width="400" height="300" fill="#bdb8b2"/>
+<rect x="80" y="40" width="240" height="220" fill="#f0d6dc" transform="rotate(-4 200 150)"/>
+<g transform="rotate(-4 200 150)">
+<text x="200" y="100" font-size="22" font-family="Georgia" font-weight="normal" fill="#8a2f45" text-anchor="middle" >Happy birthday Nina!</text>
+<text x="200" y="140" font-size="18" font-family="Georgia" font-weight="normal" fill="#4a2a33" text-anchor="middle" >3rd of September</text>
+<text x="200" y="190" font-size="14" font-family="Georgia" font-weight="normal" fill="#4a2a33" text-anchor="middle" font-style="italic">The office won't run</text>
+<text x="200" y="210" font-size="14" font-family="Georgia" font-weight="normal" fill="#4a2a33" text-anchor="middle" font-style="italic">without you — M.</text>
+</g>
+<circle cx="200" cy="44" r="10" fill="#e5484d"/>
+
+<rect width="400" height="300" fill="url(#spot)"/>
+</svg>

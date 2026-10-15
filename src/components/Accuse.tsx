@@ -2,12 +2,52 @@
 
 import { useState } from "react";
 import { currentCase as C } from "@/engine/case";
-import { isVisible } from "@/engine/rules";
+import { debrief, isVisible, PARTS, type Part } from "@/engine/rules";
 import { useFacts, useGame } from "@/engine/store";
 import type { Option } from "@/engine/types";
 import { useUI } from "@/engine/ui";
 
-type Part = "who" | "how" | "why";
+const TITLES: Record<Part, string> = { who: "Who", how: "How", why: "Why" };
+
+const labelOf = (part: Part, id: string) =>
+  part === "who"
+    ? C.suspects.find((s) => s.id === id)?.name
+    : C.accusation[part].find((o) => o.id === id)?.label;
+
+/**
+ * The prosecutor's verdict on the latest accusation: what held up, what
+ * didn't, and a nudge for every part that was wrong.
+ */
+export function ProsecutorNotes() {
+  const last = useGame((s) => s.attempts.at(-1));
+  if (!last) return null;
+  const d = debrief(C, last);
+  const clueName = (id?: string) => C.clues.find((c) => c.id === id)?.name ?? "nothing";
+
+  return (
+    <div className="flex flex-col gap-3 rounded-xl border border-line bg-panel-2 p-3">
+      <p className="text-xs uppercase tracking-widest text-muted">Prosecutor&apos;s notes on your last accusation</p>
+      {PARTS.map((p) => {
+        const r = d[p];
+        return (
+          <div key={p} className="text-sm">
+            <p>
+              <span className={r.right ? "text-good" : "text-accent"}>{r.right ? "✓" : "✗"}</span>{" "}
+              <b>{TITLES[p]}:</b> {labelOf(p, last[p])}
+            </p>
+            {r.right && (
+              <p className="ml-5 text-muted">
+                {r.proven ? "✓" : "✗"} Evidence: {clueName(last.proof[p])}
+                {r.proven ? "" : " — this doesn't prove it. Attach something that points to it directly."}
+              </p>
+            )}
+            {!r.right && <p className="ml-5 text-muted">💡 {C.accusation.hints[p]}</p>}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export function Accuse() {
   const facts = useFacts();
@@ -17,6 +57,8 @@ export function Accuse() {
   const [pick, setPick] = useState<Record<Part, string>>({ who: "", how: "", why: "" });
   const [proof, setProof] = useState<Record<Part, string>>({ who: "", how: "", why: "" });
   const [confirming, setConfirming] = useState(false);
+  const attempts = useGame((s) => s.attempts);
+  const ruledOut = (part: Part, id: string) => attempts.some((a) => a[part] === id && !debrief(C, a)[part].right);
 
   const options: Record<Part, Option[]> = {
     who: C.suspects.filter((s) => isVisible(s, facts)).map((s) => ({ id: s.id, label: `${s.name} — ${s.role}` })),
@@ -24,7 +66,7 @@ export function Accuse() {
     why: C.accusation.why.filter((o) => isVisible(o, facts)),
   };
   const clues = C.clues.filter((c) => facts.has(`clue:${c.id}`));
-  const ready = (["who", "how", "why"] as Part[]).every((p) => pick[p] && proof[p]);
+  const ready = PARTS.every((p) => pick[p] && proof[p]);
 
   const submit = () => {
     accuse({ ...pick, proof });
@@ -38,12 +80,19 @@ export function Accuse() {
     <section className="flex flex-col gap-2 rounded-xl border border-line bg-panel p-3">
       <h3 className="font-semibold">{title}</h3>
       {options[part].length === 0 && <p className="text-sm text-muted">Nothing discovered yet.</p>}
-      {options[part].map((o) => (
-        <label key={o.id} className={`flex items-start gap-3 rounded-lg border p-3 text-sm ${pick[part] === o.id ? "border-accent bg-accent-soft" : "border-line"}`}>
-          <input type="radio" name={part} className="mt-0.5 accent-[var(--accent)]" checked={pick[part] === o.id} onChange={() => setPick({ ...pick, [part]: o.id })} />
-          {o.label}
-        </label>
-      ))}
+      {options[part].map((o) => {
+        const out = ruledOut(part, o.id);
+        return (
+          <label
+            key={o.id}
+            className={`flex items-start gap-3 rounded-lg border p-3 text-sm ${pick[part] === o.id ? "border-accent bg-accent-soft" : "border-line"} ${out ? "opacity-45" : ""}`}
+          >
+            <input type="radio" name={part} className="mt-0.5 accent-[var(--accent)]" checked={pick[part] === o.id} onChange={() => setPick({ ...pick, [part]: o.id })} />
+            <span className={out ? "line-through" : ""}>{o.label}</span>
+            {out && <span className="ml-auto shrink-0 text-[11px] uppercase text-muted">ruled out</span>}
+          </label>
+        );
+      })}
       <select
         value={proof[part]}
         onChange={(e) => setProof({ ...proof, [part]: e.target.value })}
@@ -66,6 +115,7 @@ export function Accuse() {
         Name the killer, the method and the motive, each backed by one piece of evidence. A wrong accusation has consequences.
         {wrongWho > 0 && <b className="text-accent"> You have already arrested the wrong person once. Another mistake and the killer escapes.</b>}
       </p>
+      <ProsecutorNotes />
       {section("who", "Who killed Mara?")}
       {section("how", "How?")}
       {section("why", "Why?")}

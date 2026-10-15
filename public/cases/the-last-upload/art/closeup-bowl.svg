@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <radialGradient id="spot" cx="50%" cy="45%" r="65%">
+    <stop offset="0" stop-color="#fff" stop-opacity=".16"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".45"/>
+  </radialGradient>
+</defs><rect width="400" height="300" fill="#3b2f27"/>
+<g stroke="#000" stroke-opacity=".12" stroke-width="2"><path d="M0 60 q200 -20 400 0"/><path d="M0 140 q200 20 400 -6"/><path d="M0 230 q200 -16 400 8"/></g>
+<ellipse cx="200" cy="165" rx="150" ry="70" fill="#5c8187"/>
+<ellipse cx="200" cy="150" rx="140" ry="55" fill="#7aa2a8"/>
+<ellipse cx="200" cy="158" rx="118" ry="42" fill="#3f5c61"/>
+<g fill="#c9a96b"><circle cx="140" cy="160" r="12"/><circle cx="168" cy="172" r="10"/><circle cx="255" cy="170" r="11"/></g>
+<g fill="#b9b9b9"><circle cx="230" cy="150" r="9"/></g>
+<rect x="175" y="138" width="70" height="14" rx="5" fill="#d9c27a"/><circle cx="182" cy="145" r="9" fill="#d9c27a"/><circle cx="182" cy="145" r="4" fill="#3f5c61"/>
+<g fill="#d9c27a"><rect x="232" y="146" width="6" height="8"/><rect x="222" y="146" width="5" height="6"/></g>
+<path d="M172 140 L130 110" stroke="#ddd" stroke-width="2"/>
+<rect x="100" y="86" width="40" height="30" rx="4" fill="#efe6d6" transform="rotate(-20 120 101)"/>
+<text x="120" y="108" font-size="22" font-family="Georgia" font-weight="bold" fill="#333" text-anchor="middle" transform="rotate(-20 120 101)">T</text>
+
+<rect width="400" height="300" fill="url(#spot)"/>
+</svg>

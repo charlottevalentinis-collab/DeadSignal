@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <radialGradient id="spot" cx="50%" cy="45%" r="65%">
+    <stop offset="0" stop-color="#fff" stop-opacity=".16"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".45"/>
+  </radialGradient>
+</defs><rect width="400" height="300" fill="#3b2f27"/>
+
+<rect width="400" height="300" fill="#3a2a2e"/>
+<g stroke="#5a3c40" stroke-width="3" fill="none"><path d="M0 40 h400"/><path d="M0 270 h400"/></g>
+<path d="M270 0 L400 0 L400 120 L300 120 Z" fill="#5a4636"/>
+<path d="M300 120 L290 132 L300 132 Z" fill="#5b1f22"/>
+<ellipse cx="292" cy="150" rx="26" ry="9" fill="#5b1f22" opacity=".85"/>
+<path d="M70 150 q30 -26 70 -10 q30 14 60 6 q34 -6 56 22 l-16 16 q-30 -16 -60 -6 l-24 52 l-24 -6 l10 -46 q-36 0 -64 -16 q-20 24 -12 54 l-22 0 q-8 -40 10 -68 z" fill="none" stroke="#f1efe8" stroke-width="4" stroke-dasharray="9 6"/>
+<g fill="#c8b8d8"><ellipse cx="90" cy="250" rx="22" ry="10"/><ellipse cx="140" cy="256" rx="22" ry="10"/></g>
+<text x="115" y="285" font-size="11" font-family="Georgia" font-weight="normal" fill="#d8d0c4" text-anchor="middle" font-style="italic">slippers, side by side</text>
+
+<rect width="400" height="300" fill="url(#spot)"/>
+</svg>

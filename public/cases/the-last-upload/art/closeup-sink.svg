@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <radialGradient id="spot" cx="50%" cy="45%" r="65%">
+    <stop offset="0" stop-color="#fff" stop-opacity=".16"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".45"/>
+  </radialGradient>
+</defs><rect width="400" height="300" fill="#3b2f27"/>
+
+<rect width="400" height="300" fill="#2b3431"/>
+<rect x="0" y="0" width="400" height="30" fill="#9aa39e"/>
+<rect x="30" y="40" width="340" height="240" rx="20" fill="#4a5652"/>
+<rect x="44" y="54" width="312" height="212" rx="14" fill="#38423f"/>
+<circle cx="200" cy="230" r="12" fill="#1f2624"/>
+<!-- rinsed cup -->
+<ellipse cx="130" cy="150" rx="56" ry="56" fill="#e9e6df"/>
+<ellipse cx="130" cy="150" rx="44" ry="44" fill="#cfcbc2"/>
+<path d="M110 130 q20 -10 40 4" stroke="#fff" stroke-width="5" fill="none" opacity=".6"/>
+<path d="M186 150 q24 0 24 18" stroke="#e9e6df" stroke-width="9" fill="none"/>
+<!-- unrinsed cup with chalky ring -->
+<ellipse cx="270" cy="160" rx="56" ry="56" fill="#e9e6df"/>
+<ellipse cx="270" cy="160" rx="44" ry="44" fill="#c4b79c"/>
+<ellipse cx="270" cy="168" rx="26" ry="22" fill="#efe9da"/>
+<g fill="#fff" opacity=".9"><circle cx="262" cy="166" r="3"/><circle cx="276" cy="172" r="2.5"/><circle cx="268" cy="176" r="2"/><circle cx="282" cy="162" r="2"/></g>
+<text x="270" y="252" font-size="12" font-family="Georgia" font-weight="normal" fill="#e9e6df" text-anchor="middle" font-style="italic">chalky residue</text>
+
+<rect width="400" height="300" fill="url(#spot)"/>
+</svg>

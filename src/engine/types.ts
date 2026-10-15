@@ -41,8 +41,10 @@ export interface Location extends Gated {
   name: string;
   area: string;
   description: string;
-  /** CSS background used until real 360° photos exist. */
+  /** CSS background, shown behind the picture and while it loads. */
   backdrop: string;
+  /** Picture of the room; hotspot positions are percentages of it. */
+  image?: string;
   exits: string[];
   hotspots: Hotspot[];
 }
@@ -54,6 +56,8 @@ export interface Hotspot extends Gated {
   x: number;
   y: number;
   closeup: string;
+  /** Close-up picture shown above the text. */
+  image?: string;
   clue?: string;
   device?: string;
   grants?: Fact[];
@@ -114,6 +118,7 @@ export interface Call extends Item {
 }
 export interface Photo extends Item {
   caption: string;
+  image?: string;
   time: string;
   place: string;
   scene: string;
@@ -167,7 +172,9 @@ export interface Suspect extends Gated {
   id: string;
   name: string;
   role: string;
+  /** Emoji fallback when there is no picture. */
   portrait: string;
+  image?: string;
   bio: string;
   /** After this fact the suspect can no longer be interviewed. */
   absentWhen?: Fact;
@@ -200,6 +207,8 @@ export interface Accusation {
   solution: { who: string; how: string; why: string };
   /** Clues that count as proof for each part of the solution. */
   proof: { who: string[]; how: string[]; why: string[] };
+  /** Prosecutor's tip shown for each part the player got wrong. */
+  hints: { who: string; how: string; why: string };
   keyClues: string[];
 }
 

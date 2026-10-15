@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <radialGradient id="spot" cx="50%" cy="45%" r="65%">
+    <stop offset="0" stop-color="#fff" stop-opacity=".16"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".45"/>
+  </radialGradient>
+</defs><rect width="400" height="300" fill="#3b2f27"/>
+<g stroke="#000" stroke-opacity=".12" stroke-width="2"><path d="M0 60 q200 -20 400 0"/><path d="M0 140 q200 20 400 -6"/><path d="M0 230 q200 -16 400 8"/></g>
+<rect x="140" y="40" width="120" height="40" rx="6" fill="#f2f2f2"/>
+<rect x="150" y="76" width="100" height="180" rx="12" fill="#e08b3a" opacity=".92"/>
+<rect x="160" y="110" width="80" height="110" fill="#f6efe3"/>
+<text x="200" y="132" font-size="13" font-family="Helvetica" font-weight="bold" fill="#222" text-anchor="middle" >M. QUINN</text>
+<text x="200" y="152" font-size="10" font-family="Helvetica" font-weight="normal" fill="#333" text-anchor="middle" >Sleeping tablets</text>
+<text x="200" y="168" font-size="9" font-family="Helvetica" font-weight="normal" fill="#555" text-anchor="middle" >Take 1 at night</text>
+<text x="200" y="190" font-size="11" font-family="Helvetica" font-weight="normal" fill="#222" text-anchor="middle" >Qty: 30</text>
+<text x="200" y="208" font-size="8" font-family="Helvetica" font-weight="normal" fill="#555" text-anchor="middle" >Refilled 8 days ago</text>
+<g fill="#fff"><ellipse cx="300" cy="230" rx="12" ry="7"/><ellipse cx="320" cy="250" rx="12" ry="7"/><ellipse cx="290" cy="258" rx="12" ry="7"/><ellipse cx="330" cy="225" rx="12" ry="7"/></g>
+<text x="310" y="285" font-size="13" font-family="Georgia" font-weight="normal" fill="#efe6d6" text-anchor="middle" font-style="italic">4 left</text>
+
+<rect width="400" height="300" fill="url(#spot)"/>
+</svg>

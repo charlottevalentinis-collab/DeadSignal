@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <radialGradient id="spot" cx="50%" cy="45%" r="65%">
+    <stop offset="0" stop-color="#fff" stop-opacity=".16"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".45"/>
+  </radialGradient>
+</defs><rect width="400" height="300" fill="#3b2f27"/>
+<g stroke="#000" stroke-opacity=".12" stroke-width="2"><path d="M0 60 q200 -20 400 0"/><path d="M0 140 q200 20 400 -6"/><path d="M0 230 q200 -16 400 8"/></g>
+<path d="M90 50 L310 40 L320 250 L100 262 Z" fill="#f2e9da"/>
+<path d="M90 50 L310 40 L320 250 L100 262 Z" fill="none" stroke="#c8b89d" stroke-width="2"/>
+<text x="205" y="110" font-size="22" font-family="Georgia" font-weight="normal" fill="#b04a4a" text-anchor="middle" transform="rotate(-2 205 110)">Happy 60th, Mum!</text>
+<text x="205" y="150" font-size="20" font-family="Georgia" font-weight="normal" fill="#4a3a2e" text-anchor="middle" transform="rotate(-2 205 150)">Sunday 12 April</text>
+<text x="205" y="210" font-size="18" font-family="Georgia" font-weight="normal" fill="#4a3a2e" text-anchor="middle" font-style="italic" transform="rotate(-2 205 210)">love, Mara x</text>
+<g fill="#e3a3a3"><circle cx="140" cy="80" r="6"/><circle cx="270" cy="72" r="6"/><circle cx="285" cy="226" r="5"/></g>
+
+<rect width="400" height="300" fill="url(#spot)"/>
+</svg>

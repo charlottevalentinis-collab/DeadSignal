@@ -6,9 +6,9 @@ import { isVisible } from "@/engine/rules";
 import { useFacts, useGame } from "@/engine/store";
 import type { Hotspot } from "@/engine/types";
 import { useUI } from "@/engine/ui";
-import { Sheet } from "./ui";
+import { Picture, Sheet } from "./ui";
 
-// Placeholder crime scene: one flat backdrop per viewpoint with tappable
+// Crime scene: one drawn illustration per viewpoint with tappable
 // hotspots. Later this becomes a 360° photo viewer with the same hotspots.
 export function Scene() {
   const facts = useFacts();
@@ -62,8 +62,9 @@ export function Scene() {
         className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-line"
         style={{ background: here.backdrop }}
       >
-        <span className="absolute left-3 top-2 text-[10px] uppercase tracking-widest text-white/30">
-          placeholder · 360° photo coming
+        {here.image && <Picture src={here.image} alt={here.name} className="absolute inset-0 h-full w-full object-cover" />}
+        <span className="absolute left-3 top-2 text-[10px] uppercase tracking-widest text-white/40">
+          illustration · 360° photo coming
         </span>
         {here.hotspots
           .filter((h) => isVisible(h, facts))
@@ -99,6 +100,9 @@ export function Scene() {
       )}
 
       <Sheet open={!!closeup} onClose={close} title={closeup?.label ?? ""}>
+        {closeup?.image && (
+          <Picture src={closeup.image} alt={closeup.label} className="mb-3 aspect-[4/3] w-full rounded-lg border border-line object-cover" />
+        )}
         <p className="leading-relaxed">{closeup?.closeup}</p>
         {closeup?.device && (
           <button onClick={close} className="mt-4 w-full rounded-lg bg-accent py-3 font-semibold text-white">

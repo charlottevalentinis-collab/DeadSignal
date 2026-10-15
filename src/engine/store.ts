@@ -25,6 +25,8 @@ interface GameState {
   wrongWho: number;
   released: number;
   tries: Record<string, number>;
+  /** Every accusation made so far, newest last (for the prosecutor's notes). */
+  attempts: AccusationInput[];
   lastVerdict: Outcome | null;
   ending: Ending | null;
   telemetrySent: boolean;
@@ -50,6 +52,7 @@ const fresh = () => ({
   wrongWho: 0,
   released: 0,
   tries: {},
+  attempts: [] as AccusationInput[],
   lastVerdict: null,
   ending: null,
   telemetrySent: false,
@@ -120,6 +123,7 @@ export const useGame = create<GameState>()(
         const outcome = judge(C, a, s.wrongWho);
         const durationS = Math.round((Date.now() - (s.startedAt ?? Date.now())) / 1000);
         const share = keyShare(C, deriveFacts(s.base, C.rules));
+        set({ attempts: [...s.attempts, a] });
         if (outcome === "solved" || outcome === "escaped") {
           const wrongWho = s.wrongWho + (outcome === "escaped" ? 1 : 0);
           set({

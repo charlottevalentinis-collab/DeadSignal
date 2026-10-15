@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <radialGradient id="lamp" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#f6c77d" stop-opacity=".55"/>
+    <stop offset="1" stop-color="#f6c77d" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="cold" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#8fb3d9" stop-opacity=".35"/>
+    <stop offset="1" stop-color="#8fb3d9" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="vignette" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".35"/>
+    <stop offset=".5" stop-color="#000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".45"/>
+  </linearGradient>
+</defs>
+<rect width="400" height="170" fill="#2c3532"/>
+<rect y="170" width="400" height="130" fill="#1b201e"/>
+<line x1="0" y1="170" x2="400" y2="170" stroke="#000" stroke-opacity=".4" stroke-width="2"/>
+
+<g>
+  <rect x="116" y="26" width="88" height="63" fill="#18161c"/>
+  <rect x="120" y="30" width="80" height="55" fill="#141a2b"/>
+  <circle cx="180.0" cy="46.5" r="6" fill="#d9dde8" opacity=".7"/>
+  <line x1="160.0" y1="30" x2="160.0" y2="85" stroke="#18161c" stroke-width="3"/>
+  <line x1="120" y1="57.5" x2="200" y2="57.5" stroke="#18161c" stroke-width="3"/>
+</g>
+<ellipse cx="160" cy="70" rx="90" ry="60" fill="url(#cold)"/>
+<!-- tiles -->
+<g stroke="#3d4642" stroke-width="1" opacity=".6">
+  <line x1="0" y1="140" x2="250" y2="140"/><line x1="0" y1="155" x2="250" y2="155"/>
+</g>
+<!-- upper shelf + tea box (h_tea 88,120) -->
+<rect x="30" y="128" width="110" height="5" fill="#4a3a2e"/>
+<rect x="38" y="104" width="14" height="24" fill="#4d6a4d"/><rect x="54" y="106" width="14" height="22" fill="#4d6a4d"/>
+<rect x="76" y="106" width="24" height="22" fill="#e7d8a8"/>
+<rect x="76" y="106" width="24" height="7" fill="#c9a24a"/>
+<circle cx="96" cy="122" r="3" fill="#d24b4b"/>
+<text x="88" y="121" font-size="4" font-family="Helvetica" fill="#5b4a20" text-anchor="middle">tea</text>
+<rect x="108" y="110" width="10" height="18" rx="2" fill="#bcc5c9"/>
+<!-- counter + sink (h_sink 160,186) -->
+<rect x="0" y="170" width="260" height="10" fill="#9aa39e"/>
+<rect x="0" y="180" width="260" height="120" fill="#33403b"/>
+<g stroke="#26302c" stroke-width="2"><line x1="65" y1="185" x2="65" y2="300"/><line x1="130" y1="185" x2="130" y2="300"/><line x1="195" y1="185" x2="195" y2="300"/></g>
+<rect x="128" y="171" width="64" height="12" rx="3" fill="#5e6a66"/>
+<rect x="132" y="173" width="56" height="8" rx="2" fill="#2b3431"/>
+<path d="M176 171 v-20 q0 -6 -6 -6 h-8" fill="none" stroke="#c4cbc8" stroke-width="3"/>
+<ellipse cx="152" cy="176" rx="7" ry="3" fill="#e9e6df"/><rect x="145" y="168" width="14" height="8" fill="#e9e6df"/>
+<ellipse cx="168" cy="177" rx="7" ry="3" fill="#e9e6df"/><rect x="161" y="169" width="14" height="8" fill="#e9e6df"/>
+<ellipse cx="168" cy="170" rx="5" ry="1.5" fill="#d8d2c0"/>
+<!-- kettle -->
+<path d="M210 170 q0 -22 18 -22 q18 0 18 22 z" fill="#c4cbc8"/><rect x="224" y="142" width="8" height="5" fill="#222"/>
+<!-- fridge with notes (h_fridge 304,90) -->
+<rect x="270" y="35" width="80" height="235" rx="6" fill="#cfd3d1"/>
+<line x1="270" y1="120" x2="350" y2="120" stroke="#9aa09d" stroke-width="2"/>
+<rect x="338" y="60" width="4" height="40" rx="2" fill="#8b918e"/><rect x="338" y="135" width="4" height="50" rx="2" fill="#8b918e"/>
+<g>
+  <rect x="280" y="62" width="16" height="16" fill="#f2df6b" transform="rotate(-6 288 70)"/>
+  <rect x="300" y="58" width="16" height="16" fill="#f59fb6" transform="rotate(5 308 66)"/>
+  <rect x="318" y="66" width="14" height="14" fill="#9fd3f5" transform="rotate(-3 325 73)"/>
+  <rect x="292" y="82" width="26" height="20" fill="#f2df6b" transform="rotate(3 304 92)"/>
+  <text x="305" y="93" font-size="4.5" font-family="Helvetica" font-weight="bold" fill="#5a4a10" text-anchor="middle" transform="rotate(3 304 92)">LAPTOP</text>
+  <rect x="282" y="100" width="14" height="14" fill="#b5e3a1" transform="rotate(-8 289 107)"/>
+  <rect x="320" y="96" width="14" height="14" fill="#f2df6b" transform="rotate(6 327 103)"/>
+</g>
+
+<rect width="400" height="300" fill="url(#vignette)"/>
+</svg>

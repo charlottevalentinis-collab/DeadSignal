@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <radialGradient id="spot" cx="50%" cy="45%" r="65%">
+    <stop offset="0" stop-color="#fff" stop-opacity=".16"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".45"/>
+  </radialGradient>
+</defs><rect width="400" height="300" fill="#3b2f27"/>
+
+<rect width="400" height="300" fill="#262222"/>
+<path d="M120 30 L280 30 L280 200 q-20 30 -40 10 q-20 30 -40 0 q-24 34 -40 6 q-20 30 -40 4 Z" fill="#efe6d6"/>
+<path d="M120 200 q20 26 40 4 q16 28 40 -6 q20 30 40 0 q20 20 40 -10 L280 230 L120 230 Z" fill="#1b130e"/>
+<path d="M120 196 q20 26 40 4 q16 28 40 -6 q20 30 40 0 q20 20 40 -10" fill="none" stroke="#7a4a20" stroke-width="5"/>
+<text x="200" y="58" font-size="14" font-family="Courier" font-weight="bold" fill="#222" text-anchor="middle" >CORNER PHARMACY</text>
+<text x="200" y="76" font-size="10" font-family="Courier" font-weight="normal" fill="#444" text-anchor="middle" >open 24h</text>
+<text x="200" y="100" font-size="13" font-family="Courier" font-weight="bold" fill="#222" text-anchor="middle" >Fri 22:21</text>
+<text x="135" y="130" font-size="12" font-family="Courier" font-weight="normal" fill="#222" text-anchor="start" >Chamomile tea</text><text x="265" y="130" font-size="12" font-family="Courier" font-weight="normal" fill="#222" text-anchor="end" >3.49</text>
+<text x="135" y="150" font-size="12" font-family="Courier" font-weight="normal" fill="#222" text-anchor="start" >Pill crusher</text><text x="265" y="150" font-size="12" font-family="Courier" font-weight="normal" fill="#222" text-anchor="end" >4.99</text>
+<text x="135" y="175" font-size="12" font-family="Courier" font-weight="bold" fill="#222" text-anchor="start" >TOTAL</text><text x="265" y="175" font-size="12" font-family="Courier" font-weight="bold" fill="#222" text-anchor="end" >8.48</text>
+
+<rect width="400" height="300" fill="url(#spot)"/>
+</svg>

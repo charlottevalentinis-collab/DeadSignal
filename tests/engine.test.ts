@@ -1,6 +1,8 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { currentCase as C } from "../src/engine/case";
-import { computeRank, deriveFacts, isVisible, judge, nextHint } from "../src/engine/rules";
+import { computeRank, debrief, deriveFacts, isVisible, judge, nextHint } from "../src/engine/rules";
 import type { AppId, Fact } from "../src/engine/types";
 
 describe("clue engine", () => {
@@ -38,6 +40,26 @@ describe("accusation outcomes (PRD table)", () => {
   });
 });
 
+describe("prosecutor's notes", () => {
+  const right = { who: "nina", how: "pills_tea", why: "stop_report", proof: { who: "nina_location", how: "tea_cups", why: "bank_alert" } };
+
+  it("marks each part right or wrong", () => {
+    const d = debrief(C, { ...right, how: "push", why: "sale" });
+    expect(d.who).toEqual({ right: true, proven: true });
+    expect(d.how.right).toBe(false);
+    expect(d.why.right).toBe(false);
+  });
+
+  it("flags a right answer backed by evidence that proves nothing", () => {
+    const d = debrief(C, { ...right, proof: { ...right.proof, how: "spare_key" } });
+    expect(d.how).toEqual({ right: true, proven: false });
+  });
+
+  it("has a tip for every part", () => {
+    for (const p of ["who", "how", "why"] as const) expect(C.accusation.hints[p].length).toBeGreaterThan(10);
+  });
+});
+
 describe("rank", () => {
   it("rewards a clean, thorough solve and punishes mistakes", () => {
     expect(computeRank({ escaped: false, wrongWho: 0, released: 0, keyShare: 1 })).toBe("Inspector");
@@ -66,6 +88,16 @@ describe("case file integrity", () => {
     const { proof, keyClues, solution } = C.accusation;
     [...proof.who, ...proof.how, ...proof.why, ...keyClues].forEach((id) => expect(clueIds, id).toContain(id));
     expect(C.suspects.map((s) => s.id)).toContain(solution.who);
+  });
+
+  it("only points to pictures that exist", () => {
+    const images = [
+      ...C.locations.flatMap((l) => [l.image, ...l.hotspots.map((h) => h.image)]),
+      ...C.devices.flatMap((d) => (d.apps.photos ?? []).map((p) => p.image)),
+      ...C.suspects.map((s) => s.image),
+    ].filter((i): i is string => !!i);
+    expect(images.length).toBeGreaterThan(0);
+    images.forEach((i) => expect(existsSync(join(__dirname, "../public", i)), i).toBe(true));
   });
 
   it("gives every clue at least one place to be found", () => {

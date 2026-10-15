@@ -1,6 +1,6 @@
 // Offline support: keep a copy of every page and file the game has loaded,
 // so a case keeps working without a connection once it has been opened.
-const CACHE = "dead-signal-v1";
+const CACHE = "dead-signal-v2";
 const PRECACHE = ["/", "/play", "/manifest.webmanifest", "/icon.svg"];
 
 self.addEventListener("install", (e) => {
